@@ -5,10 +5,9 @@ import SEO from "../components/seo"
 
 const IndexPage: React.FC = () => (
   <Layout>
-    <SEO title="Students" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <SEO title="Feedback App" />
+    <h1>Recent</h1>
+    <p>Recently used templates go here</p>
   </Layout>
 )
 
