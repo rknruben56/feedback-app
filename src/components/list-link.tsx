@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
 import styled from "@emotion/styled"
 
-const ListElement = styled("li")`
+const ListElement = styled(`li`)`
   display: inline-block;
   margin-right: 1.5rem;
 `

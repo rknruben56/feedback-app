@@ -1,1 +1,1 @@
-declare module 'typography-theme-fairy-gates';
+declare module "typography-theme-fairy-gates"
