@@ -250,10 +250,6 @@ textarea {
 *:after {
   box-sizing: inherit;
 }
-header {
-  background: lightslategray;
-  margin-bottom: 1.45rem
-}
 h2 {
   margin-left: 0;
   margin-right: 0;
