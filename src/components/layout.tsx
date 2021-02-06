@@ -31,8 +31,4 @@ const Layout: React.FC = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
 export default Layout
