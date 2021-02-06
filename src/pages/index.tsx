@@ -6,8 +6,8 @@ import SEO from "../components/seo"
 const IndexPage: React.FC = () => (
   <Layout>
     <SEO title="Feedback App" />
-    <h1>Recent</h1>
-    <p>Recently used templates go here</p>
+    <h1>Feedback</h1>
+    <p>Recently done feedbacks go here</p>
   </Layout>
 )
 
