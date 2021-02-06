@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React, { ReactElement } from "react"
 
 const defaultProps = {
@@ -7,12 +6,7 @@ const defaultProps = {
 type HeaderProps = { siteTile?: string } & typeof defaultProps
 
 const Header = ({ siteTitle }: HeaderProps): ReactElement => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+  <header>
     <div
       style={{
         margin: `0 auto`,
@@ -21,15 +15,7 @@ const Header = ({ siteTitle }: HeaderProps): ReactElement => (
       }}
     >
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
+      {siteTitle}
       </h1>
     </div>
   </header>
