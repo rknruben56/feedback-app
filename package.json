@@ -63,7 +63,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "lint-staged": {
-    "src/**/*.{ts,css,html}": [
+    "src/**/*.{ts,tsx,html}": [
       "npm run-script lint"
     ]
   },
