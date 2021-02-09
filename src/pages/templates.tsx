@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import MUIDataTable from "mui-datatables"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -6,6 +7,15 @@ import TemplatesForm from "../components/templates-form"
 
 const TemplatesPage: React.FC = () => {
   const [showAddForm, setShowAddForm] = useState(false)
+  const columns = [`Class`, `Content`, `Date Created`]
+  const data = [
+    [`Class 1`, `[Student] is doing really well`, new Date(`December 17, 2020 03:24:00`).toLocaleString()],
+    [`Class 2`, `[Student] is doing poorly. [NextSteps]`, new Date(`December 17, 2020 03:24:00`).toLocaleString()],
+  ]
+  const options = {
+    print: false,
+    download: false,
+  }
 
   return (
     <Layout>
@@ -22,6 +32,7 @@ const TemplatesPage: React.FC = () => {
           </div>
         </div>
         {showAddForm && <TemplatesForm />}
+        {!showAddForm && <MUIDataTable title="" data={data} columns={columns} options={options} />}
       </div>
     </Layout>
   )
