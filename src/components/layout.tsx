@@ -1,10 +1,11 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import "bootstrap/dist/js/bootstrap.js"
 import NavBar from "./nav-bar"
+import { useLocation } from "@reach/router"
+import "bootstrap/dist/js/bootstrap.js"
 
 const Layout: React.FC = ({ children }) => {
+  const location = useLocation()
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -17,7 +18,7 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
-      <NavBar siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <NavBar siteTitle={data.site.siteMetadata?.title || `Title`} location={location.pathname} />
       <div className="container-fluid px-0 main">
         <div className="row">
           <div className="col">
