@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import NavBar from "./nav-bar"
+import NavBar from "./navbar"
 import "bootstrap/dist/js/bootstrap.js"
 
 const Layout: React.FC = ({ children }) => {

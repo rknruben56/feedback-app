@@ -1,21 +1,30 @@
-import React from "react"
-import styled from "@emotion/styled"
+import React, { useState } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TemplatesForm from "../components/templates-form"
 
-const Heading = styled(`h1`)`
-  display: inline;
-`
+const TemplatesPage: React.FC = () => {
+  const [showAddForm, setShowAddForm] = useState(false)
 
-const TemplatesPage: React.FC = () => (
-  <Layout>
-    <SEO title="Templates" />
-    <div>
-      <Heading>Templates</Heading>
-      <button className="btn btn-outline-secondary float-end">Add Template</button>
-    </div>
-  </Layout>
-)
+  return (
+    <Layout>
+      <SEO title="Templates" />
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-8">
+            <h1>Templates</h1>
+          </div>
+          <div className="col-4 text-right">
+            <button className="btn btn-outline-secondary" onClick={() => setShowAddForm(!showAddForm)}>
+              {showAddForm ? `Cancel` : `Add Template`}
+            </button>
+          </div>
+        </div>
+        {showAddForm && <TemplatesForm />}
+      </div>
+    </Layout>
+  )
+}
 
 export default TemplatesPage
