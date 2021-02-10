@@ -20,7 +20,7 @@ const Layout: React.FC = ({ children }) => {
       <div className="container-fluid px-0 main">
         <div className="row">
           <div className="col">
-            <div className="container mt-5">
+            <div className="container mt-3">
               <main>{children}</main>
             </div>
           </div>
