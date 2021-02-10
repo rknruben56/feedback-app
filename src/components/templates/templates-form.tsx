@@ -1,6 +1,6 @@
 import React from "react"
 import { useForm } from "react-hook-form"
-import { Template } from "../models/template"
+import { Template } from "../../models/template"
 
 const TemplatesForm: React.FC = () => {
   const { register, handleSubmit } = useForm<Template>()
