@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import TemplatesComponent from "../components/templates/templates-component"
+import TemplatesComponent from "../components/templates/TemplatesComponent"
 
 const TemplatesPage: React.FC = () => (
   <Layout>
