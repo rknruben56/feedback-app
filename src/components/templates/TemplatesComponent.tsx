@@ -37,7 +37,7 @@ const TemplatesComponent: React.FC = () => {
       },
     },
     {
-      name: `dateCreated`,
+      name: `created_at`,
       label: `Date Created`,
     },
   ]
