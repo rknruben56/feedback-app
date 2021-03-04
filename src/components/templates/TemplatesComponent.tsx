@@ -5,20 +5,39 @@ import TableCell from "@material-ui/core/TableCell"
 
 import TemplatesForm from "./TemplatesForm"
 import { Template } from "../../models/template"
-import * as API from "../../api/TemplatesAPI"
+import * as api from "../../api/TemplatesAPI"
 
 const TemplatesComponent: React.FC = () => {
   const maxContentLength = 25
   const [showAddForm, setShowAddForm] = useState(false)
   const [data, setData] = useState([] as Template[])
+  const [formAlert, setFormAlert] = useState(``)
+  const [isFormError, setIsFormError] = useState(false)
 
   useEffect(() => {
     fetchTemplates()
   }, [])
 
   const fetchTemplates = async () => {
-    const templates = await API.GetTemplates()
+    const templates = await api.GetTemplates()
     setData(templates)
+  }
+
+  const onFormSubmit = async (isError: boolean, message: string) => {
+    await fetchTemplates()
+    setShowAddForm(false)
+    showAlert(message, isError)
+  }
+
+  const onTemplateDelete = async () => {
+    await fetchTemplates()
+    showAlert(`Templates successfully deleted!`)
+  }
+
+  const showAlert = (message: string, isError = false) => {
+    setFormAlert(message)
+    setIsFormError(isError)
+    setTimeout(() => setFormAlert(``), 2000)
   }
 
   const columns = [
@@ -62,6 +81,15 @@ const TemplatesComponent: React.FC = () => {
         </TableRow>
       )
     },
+    onRowsDelete: (rowsDeleted: {
+      lookup: { [dataIndex: number]: boolean }
+      data: { index: number; dataIndex: number }[]
+    }) => {
+      const deletePromises = rowsDeleted.data.map(d => {
+        return api.DeleteTemplate(data[d.dataIndex].id)
+      })
+      Promise.all(deletePromises).then(onTemplateDelete)
+    },
   }
 
   return (
@@ -77,7 +105,12 @@ const TemplatesComponent: React.FC = () => {
         </div>
       </div>
       <div className="pt-3">
-        {showAddForm && <TemplatesForm />}
+        {formAlert && (
+          <div className={`alert ${isFormError ? `alert-danger` : `alert-success`}`} role="alert">
+            {formAlert}
+          </div>
+        )}
+        {showAddForm && <TemplatesForm onSubmitCallback={onFormSubmit} />}
         {!showAddForm && <MUIDataTable title="Your Templates" data={data} columns={columns} options={options} />}
       </div>
     </div>

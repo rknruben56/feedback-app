@@ -1,5 +1,5 @@
 export type Template = {
-  id?: number
+  id: string
   class: string
   content: string
   created_at?: string
