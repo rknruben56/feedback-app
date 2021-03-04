@@ -39,6 +39,12 @@ const TemplatesComponent: React.FC = () => {
     {
       name: `created_at`,
       label: `Date Created`,
+      options: {
+        customBodyRenderLite: (dataIndex: number) => {
+          const creationDate = data[dataIndex].created_at || ``
+          return new Date(creationDate).toLocaleDateString(`en-US`)
+        },
+      },
     },
   ]
   const options = {
